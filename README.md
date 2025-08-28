@@ -54,13 +54,34 @@ If you are able to compile your code successfully you should see something like 
 ## Understanding
 Describe what you understood about the problem.
 
+Solution:
+So, technically here in the datasheet we have the details regarding the Rover. Here we can see the details regarding the usage and data regarding the Rover of where it is, and the kind of firmware used in it, we can  also observe the errors encountered. on a whole a database of the working of the Rover. So the problem we are having here is the problem we are having is we having al the details regarding the Rover, Start point, lattitudes and location of where it is actually travelling, we need to create a path planning algo to compute an optimal path with the given info, and the main part is Run & test the full workflow.
+Decode GPS -> Plan Path -> Generate Command
+
 ## Thought Process
 After understanding the problem, describe how you decided to proceed towards solving the question.
+
+
+Solution:
+After reading the codes we get to see that:
+--
+1. ublox_reader.cpp doesn’t correctly extract lat/lon from UBX data.
+--
+2. planning.cpp has unfinished path planning logic.
+--
+3. odometry.cpp is incomplete as it still needs wheel commands.
+--
+The project won’t run correctly until those are fixed.
+First, we will try to fix these by
+correctly decoding UBX GPS data into degrees in ublox_reader.cpp and converting the planned path into wheel motion for the turning and moving commands in odometry.cpp as it decides the motion of the rover. This would mostly fix the issue with the motion.
 
 ## Implementation
 How did you decide to implement your solution.
 
 Mention the details, such as the path planning & odometry how you tested it.
+
+#Solution:
+If we decoded the GPS data from the u-blox module by extracting latitude and longitude from the UBX format and converting them into degrees. The planned path was then converted into odometry commands by calculating the required turns and forward movements using the rover’s wheel radius and distance between wheels. I can test the system by giving sample UBX logs, checking paths on a small grid with obstacles, and verifying that the generated commands matched the expected rover movements.
 
 # Google Form
 [Link to Repo Submission](https://docs.google.com/forms/d/e/1FAIpQLSdlVJ2LzP8wUOATRD804zDVL611rwwGMO1y_ecYu5aoV5YQfw/viewform)
