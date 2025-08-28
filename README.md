@@ -80,8 +80,17 @@ How did you decide to implement your solution.
 
 Mention the details, such as the path planning & odometry how you tested it.
 
-#Solution:
+# Solution:
 If we decoded the GPS data from the u-blox module by extracting latitude and longitude from the UBX format and converting them into degrees. The planned path was then converted into odometry commands by calculating the required turns and forward movements using the rover’s wheel radius and distance between wheels. I can test the system by giving sample UBX logs, checking paths on a small grid with obstacles, and verifying that the generated commands matched the expected rover movements.
+
+
+## Use of AI and Thinking process
+So, here as we have already noticed the problem regarding the rover and working, the changes ahd to start from the planning.cpp, because most of the code/info regarding the rover is given.
+Due to given stipulated time, i have taken the planning.cpp as my first area of cahnges to be made to initiate the fix. The code was given till the validity of the model and the Rover, now it was time to set up the Wheel postions. The pathplanner is given with the start and the goal loction. I decided to give the wheel the directions and initial start for the wheel. While it is initialed, now when the goal is reached giving it current==goal, i am trying to reconstruct the path, giving the the loctions of the aligned path of the rover travelled. And Further checking if the final/goal loction is relating with the start point, by validating the final co-ordinates. Thus giving me a whole aligned path for the Rover. 
+ # AI
+ Here, i have used the basic process required for the process and further gave the basic and initial code for the planning and getting the only end points for the Retracking of the Aligned path of the Rover.
+
+
 
 # Google Form
 [Link to Repo Submission](https://docs.google.com/forms/d/e/1FAIpQLSdlVJ2LzP8wUOATRD804zDVL611rwwGMO1y_ecYu5aoV5YQfw/viewform)
