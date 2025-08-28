@@ -80,8 +80,10 @@ How did you decide to implement your solution.
 
 Mention the details, such as the path planning & odometry how you tested it.
 
-# Solution:
-If we decoded the GPS data from the u-blox module by extracting latitude and longitude from the UBX format and converting them into degrees. The planned path was then converted into odometry commands by calculating the required turns and forward movements using the rover’s wheel radius and distance between wheels. I can test the system by giving sample UBX logs, checking paths on a small grid with obstacles, and verifying that the generated commands matched the expected rover movements.
+Solution:
+If we decoded the GPS data from the u-blox module by extracting latitude and longitude from the UBX format and converting them into degrees.
+The planned path was then converted into odometry commands by calculating the required turns and forward movements using the rover’s wheel radius and distance between wheels.
+I can test the system by giving sample UBX logs, checking paths on a small grid with obstacles, and verifying that the generated commands matched the expected rover movements.
 
 
 ## Use of AI and Thinking process
